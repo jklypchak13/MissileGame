@@ -29,9 +29,9 @@ function main() {
     person.update();
 
     //Go through the meteors to see if a hit has occurred, and update them.
-    for (let i = 0; i < meteors.length; i++) {
+    for (let i = meteors.length - 1; i >= 0; i++) {
         if (person.hit(meteors[i])) {
-            console.log("HIT, GAME OVER");
+            meteors.splice(i, 1);
         }
         meteors[i].update();
     }
@@ -62,15 +62,16 @@ function createNewMeteor() {
     let x = Math.floor(Math.random() * 400);
     let y = Math.floor(Math.random() * 2) + 1
     if (y == 1) {
-        meteors.push(new Meteor(x, 0, 20, 20, 1, person));
+        meteors.push(new Meteor(x, 0, 20, 20, .5, person));
     } else {
-        meteors.push(new Meteor(x, 144, 20, 20, 1, person));
+        meteors.push(new Meteor(x, 144, 20, 20, .5, person));
     }
 }
 
 /**
  * History:
  *      1/16/19: Created and Implemented -Nick
+ *      1/17/19: Changed to recognize WASD controls -Jarod
  * Description:
  *      Gets user input from the keyboard.
  * Arguments:
@@ -79,13 +80,14 @@ function createNewMeteor() {
  *      None.
  */
 function userInputMovement(event) {
-    if (event.keyCode === 37 || event.key === "h") {
+
+    if (event.key === "a" || event.key === "h") {
         person.move(-1, 0);
-    } else if (event.keyCode === 39 || event.key === "l") {
+    } else if (event.key === "d" || event.key === "l") {
         person.move(1, 0);
-    } else if (event.keyCode === 40 || event.key === "j") {
+    } else if (event.key === "s" || event.key === "j") {
         person.move(0, 1);
-    } else if (event.keyCode === 38 || event.key === "k") {
+    } else if (event.key === "w" || event.key === "k") {
         person.move(0, -1);
     }
 }
