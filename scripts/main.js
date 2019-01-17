@@ -1,6 +1,6 @@
 let canvas = document.getElementById("c");
 let missles = [];
-let person = new Person();
+let person = new Person(30, 30);
 let background = new Image();
 let counter = 0;
 background.src = "img/background.png";
@@ -14,10 +14,10 @@ let limit = 100;
 
 function main() {
     let ctx = canvas.getContext("2d");
-	document.onkeypress = userInputMovement;
-	person.display();
-	person.update();
+    document.onkeypress = userInputMovement;
+
     ctx.drawImage(background, 0, 0);
+    person.update();
     //ctx.fillStyle = "black";
     //ctx.fillRect(0, 0, 400, 144);
     for (let i = 0; i < missles.length; i++) {
@@ -31,7 +31,10 @@ function main() {
     if (counter == limit) {
         createNewMissle();
         counter = 0;
-        limit -= 1;
+        if (limit > 1) {
+            limit -= 1;
+        }
+
     }
 
 }
@@ -47,13 +50,13 @@ function createNewMissle() {
 }
 
 function userInputMovement(event) {
-	if (event.keyCode === 37 || event.key === "h") {
-		person.move(-1, 0);
-	} else if (event.keyCode === 39 || event.key === "l") {
-		person.move(1, 0);
-	} else if (event.keyCode === 40 || event.key === "j") {
-		person.move(0, 1);
-	} else if (event.keyCode === 38 || event.key === "k") {
-		person.move(0, -1);
-	}
+    if (event.keyCode === 37 || event.key === "h") {
+        person.move(-1, 0);
+    } else if (event.keyCode === 39 || event.key === "l") {
+        person.move(1, 0);
+    } else if (event.keyCode === 40 || event.key === "j") {
+        person.move(0, 1);
+    } else if (event.keyCode === 38 || event.key === "k") {
+        person.move(0, -1);
+    }
 }
