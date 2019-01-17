@@ -24,11 +24,15 @@ class Person {
         this.x += this.changeX;
         if (this.x > canvas.width) {
             this.x = 0;
-        }
+		} else if (this.x < 0) {
+			this.x = canvas.width;
+		}
         this.y += this.changeY;
         if (this.y > canvas.height) {
             this.y = 0;
-        }
+		} else if (this.y < 0) {
+			this.y = canvas.height;
+		}
         this.display();
     }
 
