@@ -15,9 +15,8 @@ let limit = 100;
 function main() {
     let ctx = canvas.getContext("2d");
 	document.onkeypress = userInputMovement;
-	person.display();
-	person.update();
     ctx.drawImage(background, 0, 0);
+	person.update();
     //ctx.fillStyle = "black";
     //ctx.fillRect(0, 0, 400, 144);
     for (let i = 0; i < missles.length; i++) {

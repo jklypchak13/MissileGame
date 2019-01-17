@@ -22,7 +22,13 @@ class Person {
 
 	update() {
 		this.x += this.changeX;
+		if (this.x > canvas.width) {
+			this.x = 0;
+		}
 		this.y += this.changeY;
+		if (this.y > canvas.height) {
+			this.y = 0;
+		}
 		this.display();
 	}
 
