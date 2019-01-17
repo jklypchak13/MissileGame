@@ -1,4 +1,4 @@
-class Missle {
+class Meteor {
     constructor(x, y, w, h, speed, target, vx, vy) {
         this.x = x;
         this.y = y;

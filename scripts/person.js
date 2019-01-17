@@ -24,21 +24,32 @@ class Person {
         this.x += this.changeX;
         if (this.x > canvas.width) {
             this.x = 0;
-		} else if (this.x < 0) {
-			this.x = canvas.width;
-		}
+        } else if (this.x < 0) {
+            this.x = canvas.width;
+        }
         this.y += this.changeY;
         if (this.y > canvas.height) {
             this.y = 0;
-		} else if (this.y < 0) {
-			this.y = canvas.height;
-		}
+        } else if (this.y < 0) {
+            this.y = canvas.height;
+        }
         this.display();
     }
 
-    hit(missile) {
+    /**
+     * History:
+     *      1/16/19: Created and Implemented -Nick
+     * Description:
+     *      Detects if a meteor has collided with this person.
+     * Arguments:
+     *      meteor: a Meteor Object, with an x, y, width, and height attribute.
+     * Returns:
+     *      true iff this has collided with the meteor.
+     *      false otherwise.
+     */
+    hit(meteor) {
         // TODO: make it not suck
-        if (this.x == missile.x && this.y == missile.y) {
+        if (this.x == meteor.x && this.y == meteor.y) {
             return true;
         }
         return false;

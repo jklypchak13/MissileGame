@@ -1,5 +1,5 @@
 let canvas = document.getElementById("c");
-let missles = [];
+let meteors = [];
 let person = new Person(30, 30);
 let background = new Image();
 let counter = 0;
@@ -20,16 +20,16 @@ function main() {
     person.update();
     //ctx.fillStyle = "black";
     //ctx.fillRect(0, 0, 400, 144);
-    for (let i = 0; i < missles.length; i++) {
-        if (person.hit(missles[i])) {
+    for (let i = 0; i < meteors.length; i++) {
+        if (person.hit(meteors[i])) {
             console.log("HIT, GAME OVER");
         }
-        missles[i].update();
-        missles[i].display();
+        meteors[i].update();
+        meteors[i].display();
     }
     counter++;
     if (counter == limit) {
-        createNewMissle();
+        createNewmeteor();
         counter = 0;
         if (limit > 1) {
             limit -= 1;
@@ -39,13 +39,13 @@ function main() {
 
 }
 
-function createNewMissle() {
+function createNewMeteor() {
     let x = Math.floor(Math.random() * 400);
     let y = Math.floor(Math.random() * 2) + 1
     if (y == 1) {
-        missles.push(new Missle(x, 0, 20, 20, 1, null, 0, 1));
+        meteors.push(new meteor(x, 0, 20, 20, 1, null, 0, 1));
     } else {
-        missles.push(new Missle(x, 144, 20, 20, 1, null, 0, -1));
+        meteors.push(new meteor(x, 144, 20, 20, 1, null, 0, -1));
     }
 }
 
