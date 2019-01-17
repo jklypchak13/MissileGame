@@ -1,12 +1,12 @@
 class Person {
     constructor(height, width) {
-		this.x = canvas.width;
-		this.y = canvas.height;
 		this.height = height;
 		this.width = width;
+		this.x = canvas.width / 2 + .5 * this.width;
+		this.y = canvas.height / 2 + .5 * this.height;
 		this.image = new Image();
 		this.image.src = "img";
-		this.changeX = 0;
+		this.changeX = 1;
 		this.changeY = 0;
     }
 
@@ -17,13 +17,13 @@ class Person {
 
 	display() {
 		let ctx = canvas.getContext("2d");
-		ctx.drawImage(this.image, this.width, this.height);
+		ctx.drawImage(this.image, this.x - .5 * this.width, this.y - .5 * this.height, this.width, this.height);
 	}
 
 	update() {
 		this.x += this.changeX;
 		this.y += this.changeY;
-		ctx.drawImage(this.image, this.x, this.y);
+		ctx.drawImage(this.image, this.x - .5 * this.width, this.y - .5 * this.height, this.width, this.height);
 	}
 
 	hit(missile) {

@@ -1,6 +1,6 @@
 let canvas = document.getElementById("c");
 let missles = [];
-//let person = new Person();
+let person = new Person();
 let background = new Image();
 //background.src = "filename";
 setup();
@@ -17,10 +17,12 @@ function main() {
     ctx.fillStyle = "black";
     console.log(missles[0]);
     ctx.fillRect(0, 0, 400, 144);
+	//document.addEventListener("keypress", userInputMovement(event));
+	document.onkeypress = userInputMovement;
     for (let i = 0; i < missles.length; i++) {
-        //if (person.hit(missles[i])) {
-        //    console.log("HIT, GAME OVER");
-        //}
+        if (person.hit(missles[i])) {
+            console.log("HIT, GAME OVER");
+        }
         missles[i].update();
         missles[i].display();
     }
@@ -28,4 +30,16 @@ function main() {
 
 function createNewMissle() {
     let x = Math.floor(Math.random() * 144);
+}
+
+function userInputMovement(event) {
+	if (event.keyCode === 37 || event.key === "h") {
+		person.move(-1, 0);
+	} else if (event.keyCode === 39 || event.key === "l") {
+		person.move(1, 0);
+	} else if (event.keyCode === 40 || event.key === "j") {
+		person.move(0, 1);
+	} else if (event.keyCode === 38 || event.key === "k") {
+		person.move(0, -1);
+	}
 }
