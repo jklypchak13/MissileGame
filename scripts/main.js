@@ -15,6 +15,8 @@ let limit = 100;
 function main() {
     let ctx = canvas.getContext("2d");
 	document.onkeypress = userInputMovement;
+	person.display();
+	person.update();
     ctx.drawImage(background, 0, 0);
     //ctx.fillStyle = "black";
     //ctx.fillRect(0, 0, 400, 144);

@@ -23,7 +23,7 @@ class Person {
 	update() {
 		this.x += this.changeX;
 		this.y += this.changeY;
-		ctx.drawImage(this.image, this.x - .5 * this.width, this.y - .5 * this.height, this.width, this.height);
+		this.display();
 	}
 
 	hit(missile) {
