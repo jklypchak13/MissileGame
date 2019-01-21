@@ -29,11 +29,13 @@ function main() {
     person.update();
 
     //Go through the meteors to see if a hit has occurred, and update them.
-    for (let i = meteors.length - 1; i >= 0; i++) {
+    for (let i = meteors.length - 1; i >= 0; i--) {
         if (person.hit(meteors[i])) {
             meteors.splice(i, 1);
+        } else {
+            meteors[i].update();
         }
-        meteors[i].update();
+
     }
 
     //Check to Create a new meteor.
