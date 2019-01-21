@@ -2,7 +2,7 @@ let canvas = document.getElementById("c");
 let ctx = canvas.getContext("2d");
 
 let meteors = [];
-let person = new Person(30, 30);
+let person = new Person(50, 32);
 
 let background = new Image();
 
