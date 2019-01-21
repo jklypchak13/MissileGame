@@ -1,5 +1,5 @@
 class Person {
-    constructor(height, width) {
+    constructor(width, height) {
         this.height = height;
         this.width = width;
         this.x = canvas.width / 2 + .5 * this.width;
@@ -16,7 +16,6 @@ class Person {
     }
 
     display() {
-        let ctx = canvas.getContext("2d");
         ctx.drawImage(this.image, this.x - .5 * this.width, this.y - .5 * this.height, this.width, this.height);
     }
 

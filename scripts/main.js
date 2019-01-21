@@ -2,7 +2,7 @@ let canvas = document.getElementById("c");
 let ctx = canvas.getContext("2d");
 
 let meteors = [];
-let person = new Person(30, 30);
+let person = new Person(50, 32);
 
 let background = new Image();
 
@@ -29,7 +29,7 @@ function main() {
     person.update();
 
     //Go through the meteors to see if a hit has occurred, and update them.
-    for (let i = meteors.length - 1; i >= 0; i++) {
+    for (let i = meteors.length - 1; i >= 0; i--) {
         if (person.hit(meteors[i])) {
             meteors.splice(i, 1);
         }
