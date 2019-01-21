@@ -8,10 +8,12 @@ let background = new Image();
 
 let counter = 0;
 let limit = 100;
+let music = document.getElementById("myAudio");
 
 setup();
 
 function setup() {
+
     background.src = "img/background.png";
     setInterval(main, 10);
 
@@ -43,7 +45,7 @@ function main() {
     if (counter == limit) {
         createNewMeteor();
         counter = 0;
-        if (limit > 1) {
+        if (limit > 50) {
             limit -= 1;
         }
 
@@ -64,9 +66,9 @@ function createNewMeteor() {
     let x = Math.floor(Math.random() * 400);
     let y = Math.floor(Math.random() * 2) + 1
     if (y == 1) {
-        meteors.push(new Meteor(x, 0, 20, 20, .5, person));
+        meteors.push(new Meteor(x, 0, 50, 50, .5, person));
     } else {
-        meteors.push(new Meteor(x, 144, 20, 20, .5, person));
+        meteors.push(new Meteor(x, 144, 50, 50, .5, person));
     }
 }
 
